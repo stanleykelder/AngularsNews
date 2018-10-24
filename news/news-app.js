@@ -1,11 +1,14 @@
 var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 
+
+// ADD CONTROLLERS
+
 // TODO: Code of the routeProvider
 app.config(function($routeProvider) {
   $routeProvider
 	.when('/news-list', {
 		templateUrl : 'news/news-list.html', 
-		controller : 'newscontrollerorsomething'
+		// controller : 'newscontrollerorsomething'
 	})
 	.otherwise({
     	templateUrl : 'news/news-list.html', 
