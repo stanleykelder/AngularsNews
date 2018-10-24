@@ -22,7 +22,7 @@ app.config(function($routeProvider) {
 // $http.defaults.headers.common['Authorization'] = loginres.Authorization + ' apikey=' + loginres.apikey;
 
 app.run(['$http', function ($http) {
-	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=XXXXXXXX';
+	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDM';
 }]);
 
 /**************************************************************************/
