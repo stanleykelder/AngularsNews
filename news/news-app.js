@@ -1,6 +1,20 @@
 var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 
 // TODO: Code of the routeProvider
+app.config(function($routeProvider) {
+  $routeProvider
+	.when('/news-list', {
+		templateUrl : 'news/news-list.html', 
+		controller : 'newscontrollerorsomething'
+	})
+	.otherwise({
+    	templateUrl : 'news/news-list.html', 
+    	// controller : 'controller1'
+    });
+});	
+
+
+
 
 // TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey
 // When the user is logged in, the apikey sent to the server must be updated to the
