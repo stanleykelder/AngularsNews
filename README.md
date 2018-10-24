@@ -40,6 +40,7 @@
 
 -title and image to be linked to the detail page of the news (News edition is not allowed by means of this links.)
 
+(Stanley)
 -Twitter timeline(twitter profile used could be @EIT_dital), not to be shown at small devices
 
 -if the users is logged in the following buttons should apper: 1.edit and redirect the the edition form of each news, 2 create news which redirect to an empty edition form and 3. remove each of the news
