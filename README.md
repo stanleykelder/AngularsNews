@@ -13,7 +13,7 @@
 
 
 ## This shows all tasks we have to do
-### Comment your abouve what you are doing, comment status below task :)
+### Comment your name above what you are doing, comment status below task :)
 
 
 
