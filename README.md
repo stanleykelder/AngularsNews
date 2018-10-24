@@ -26,7 +26,7 @@
 -checkbox to select if the users is logged in or not (if logged in th euser can create edit or remove, othervides just view)
 
 - navigation bar sould properly shown in mobile devices(ideally should be collpesed in one button)
-## THIS IS IMPORTANT FOR ALL LAYOUT
+#### THIS IS IMPORTANT FOR ALL LAYOUT
 
 - links must filter the news shown according to their category
 
