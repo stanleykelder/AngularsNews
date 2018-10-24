@@ -12,6 +12,9 @@
 #
 
 
+## This shows all tasks we have to do
+### Comment your abouve what you are doing, comment status below task :)
+
 
 
 
@@ -29,10 +32,11 @@
 
 
 
-(STANLEY)
 # --news-list -- 
 
+(Stanley)
 -Main page include news title, subtitle, thumbnail and abstract (not the body)
+(Layout is not perfect yet, it might be handy if I do the other things in news-list too now that I got used to this file)
 
 -title and image to be linked to the detail page of the news (News edition is not allowed by means of this links.)
 
