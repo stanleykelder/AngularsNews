@@ -1,15 +1,15 @@
 # AngularsNews
 # commentada
 
-## git commands
-# git status 
+# git commands
+## git status 
 
-# git add README.md / *
-# git commit -m "......"
-# git push 
-#
-# git pull
-#
+## git add README.md / *
+## git commit -m "......"
+## git push 
+##
+## git pull
+##
 
 
 ## This shows all tasks we have to do
