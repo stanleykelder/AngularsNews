@@ -28,6 +28,8 @@
 </head>
 
 <body ng-app="newssapp">
+
+    
 	
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -49,9 +51,20 @@
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Login -->
-                                <div class="login d-flex">
-                                    <a href="#">Login</a>
-                                </div>
+
+
+                                <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >
+                                          Login 
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+                                          <a class="dropdown-item" href="#">Michael</a>
+                                          <a class="dropdown-item" href="#">Stanley</a>
+                                          <a class="dropdown-item" href="#">Tobi</a>
+                                        </div>
+                                      </div>
+
+
                                 <!-- Search Form -->
                                 <div class="search-form">
                                     <form action="#" method="post">
@@ -89,11 +102,11 @@
                         <div class="classynav">
                             <ul>
                                 <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="#">All News</a></li>
-                                <li><a href="#">National</a></li>
-                                <li><a href="#">Economy</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Technology</a></li>
+                                	<li><a href="#!algo">All news</a></li>
+								<li><a href="#" ng-click="myFilter={category:'National'}">National</a></li>
+								<li><a href="#" ng-click="myFilter={category:'Economy'}">Economy</a></li>
+								<li><a href="#" ng-click="myFilter={category:'Sports'}">Sports</a></li>
+								<li><a href="#" ng-click="myFilter={category:'Technology'}">Technology</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

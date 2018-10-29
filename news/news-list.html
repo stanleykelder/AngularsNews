@@ -1,86 +1,25 @@
-<!--
-    THIS IS COMPLETELY HTML NOW
-    MUST BE CHANGED TO ANGULARJS
-    TABLE WITH NEWS LIST?
--->
-
-<!-- ##### Featured Post Area Start ##### -->
-<div class="featured-post-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-8">
-                <div class="row">
-
-                    <!-- Single Featured Post -->
-                    <div class="col-lg-6">
-                        <div class="single-blog-post featured-post">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/16.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <a href="#" class="post-title">
-                                    <h6>Financial news: A new company is born today at the stock market</h6>
-                                </a>
-                                <div class="post-meta">
-                                    <p class="post-author">By <a href="#">Christinne Williams</a></p>
-                                    <p class="post-excerp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placerat. Sed varius leo ac leo fermentum, eu cursus nunc maximus. Integer convallis nisi nibh, et ornare neque ullamcorper ac. Nam id congue lectus, a venenatis massa. Maecenas justo libero, vulputate vel nunc id, blandit feugiat sem. </p>
-                                </div>
-                            </div>
-                        </div>
+<div class="post_item post_h_large">
+        <div class="row" ng-repeat="new in news | filter :myFilter "><!-- {'category' : text} -->
+        <div class="col-lg-5">
+            <div class="post_image"><img  ng-src="{{ 'data:' + new.thumbnail_media_type + ';base64,' + new.thumbnail_image }}" alt=""></div>
+        </div>
+        <div class="col-lg-7">
+            <div class="post_content" >
+                <div class="post_category cat_technology"><a href="#">{{new.category}} </a></div>
+                <div class="post_title"><a href="#">{{new.title}} </a></div>
+                <div class="post_info d-flex flex-row align-items-center justify-content-start">
+                    <div class="post_author d-flex flex-row align-items-center justify-content-start">
+                        <div><div class="post_author_image"><img alt=""></div></div>
+                        <div class="post_author_name"><a href="#">{{new.id_user}}</a></div>
                     </div>
-
-                    <div class="col-lg-6">
-                        <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placerat. Sed varius leo ac...</h6>
-                                    </a>
-                                </div>
-                               	<div class="post-meta">
-                                    <p class="post-author">By <a href="#">Christinne Williams</a></p>
-                                    <p class="post-excerp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placerat. Sed varius leo ac leo fermentum, eu cursus nunc maximus. Integer convallis nisi nibh, et ornare neque ullamcorper ac. Nam id congue lectus, a venenatis massa. Maecenas justo libero, vulputate vel nunc id, blandit feugiat sem. </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placerat. Sed varius leo ac...</h6>
-                                    </a>
-                                </div>
-                                <div class="post-meta">
-                                    <p class="post-author">By <a href="#">Christinne Williams</a></p>
-                                    <p class="post-excerp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales placerat. Sed varius leo ac leo fermentum, eu cursus nunc maximus. Integer convallis nisi nibh, et ornare neque ullamcorper ac. Nam id congue lectus, a venenatis massa. Maecenas justo libero, vulputate vel nunc id, blandit feugiat sem. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="post_date"><a href="#">{{new.update_date}}</a></div> 
+                    
                 </div>
-            </div>
-
-            
-                <!-- Single Featured Post -->
-                <div class="single-blog-post small-featured-post d-flex">
-                    TWITTER IMPLEMENTATIOM
+                <div class="post_text">
+                    <p>{{new.subtitle}}.</p>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- ##### Featured Post Area End ##### -->
-
-
+        <br>
+        </div>	
+        </div>

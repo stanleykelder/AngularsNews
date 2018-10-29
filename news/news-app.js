@@ -7,11 +7,13 @@ var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 app.config(function($routeProvider) {
   $routeProvider
 	.when('/news-list', {
-		templateUrl : 'news/news-list.html', 
+		controller : 'NewsListCtrl',
+		redirectTo: 'news/news-list.html'
 		// controller : 'newscontrollerorsomething'
 	})
 	.otherwise({
-    	templateUrl : 'news/news-list.html', 
+		templateUrl : 'news/news-list.html', 
+    	controller : 'NewsListCtrl'
     	// controller : 'controller1'
     });
 });	
@@ -25,7 +27,7 @@ app.config(function($routeProvider) {
 // $http.defaults.headers.common['Authorization'] = loginres.Authorization + ' apikey=' + loginres.apikey;
 
 app.run(['$http', function ($http) {
-	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDM';
+	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDQ=';
 }]);
 
 /**************************************************************************/
