@@ -1,34 +1,58 @@
-<div class="post_item post_h_large">
-        <div class="row" ng-repeat="new in news | filter :myFilter "><!-- {'category' : text} -->
-        <div class="col-lg-5">
-            <div class="post_image"><img  ng-src="{{ 'data:' + new.thumbnail_media_type + ';base64,' + new.thumbnail_image }}" alt=""></div>
-        </div>
-        <div class="col-lg-7">
-            <div class="post_content" >
-                <div class="post_category cat_technology"><a href="#">{{new.category}} </a></div>
-                <div class="post_title"><a href="#">{{new.title}} </a></div>
-                <div class="post_info d-flex flex-row align-items-center justify-content-start">
-                    <div class="post_author d-flex flex-row align-items-center justify-content-start">
-                        <div><div class="post_author_image"><img alt=""></div></div>
-                        <div class="post_author_name"><a href="#">{{new.id_user}}</a></div>
+<!-- ##### Featured Post Area Start ##### -->
+<div class="featured-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-8">
+                <div class="row" ng-repeat="article in news | filter :myFilter ">
+
+                    <!-- <div class="post_item post_h_large"> -->
+                        <!-- <div class="row" ng-repeat="article in news | filter :myFilter "> -->
+                            
+                    <!-- Render images of news-->
+                    <div class="col-lg-5">
+                        <div class="post_image"><img  ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></div>
                     </div>
-                    <div class="post_date"><a href="#">{{new.update_date}}</a></div> 
-                    
+        
+                    <!-- Render content parts of news -->
+<!-- ADD APPROPIATE CLASSES! -->
+<!-- ADD NG-CLICKS and REMOVE HREFS -->
+                    <div class="" >
+                        <div class="post_category cat_technology"><a href="#">{{article.category}} </a></div>
+
+                        <div class="post_title"><a href="#">{{article.title}} </a></div>
+
+                        <div class="post_info d-flex flex-row align-items-center justify-content-start">
+                            <div class="post_author d-flex flex-row align-items-center justify-content-start">
+
+<!-- Why author image? -->
+                                <div> <div class="post_author_image"><img alt=""></div> </div>
+
+                                <div class="post_author_name"><a href="#">{{article.id_user}}</a> </div>
+                            </div>
+                            
+                            <div class="post_date"><a href="#">{{article.update_date}}</a></div> 
+                            
+                        </div>
+
+                        <!-- render subtitle -->
+                        <div class="post_text">
+                            <p>{{article.subtitle}}.</p>
+                        </div>
+                    </div>
                 </div>
-<<<<<<< HEAD
-                <div class="post_text">
-                    <p>{{new.subtitle}}.</p>
-=======
             </div>
 
-            
-                <!-- Single Featured Post -->
-                <div class="single-blog-post small-featured-post d-flex">
-                    <a class="twitter-timeline" data-height="800" href="https://twitter.com/EIT_Digital">Tweets by EIT Digital</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
->>>>>>> 13781e54289da5f7b846d839e9445320c99d84fc
-                </div>
+            <!-- Twitter timeline -->
+            <div class="single-blog-post small-featured-post d-flex">
+                <a class="twitter-timeline" data-height="800" href="https://twitter.com/EIT_Digital">Tweets by EIT Digital</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
             </div>
+
+
         </div>
+    </div>
+</div>       
+                <!-- Single Featured Post -->
+   
         <br>
         </div>	
         </div>

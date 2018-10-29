@@ -50,20 +50,16 @@
 
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">
-                                <!-- Login -->
 
-
-                                <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >
-                                          Login 
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                                          <a class="dropdown-item" href="#">Michael</a>
-                                          <a class="dropdown-item" href="#">Stanley</a>
-                                          <a class="dropdown-item" href="#">Tobi</a>
-                                        </div>
-                                      </div>
-
+	                            <!-- Login drop-down -->
+	                            <div class="dropdown">
+	                                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >Login</button>
+	                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+	                                  <a class="dropdown-item" href="#">Michael</a>
+	                                  <a class="dropdown-item" href="#">Stanley</a>
+	                                  <a class="dropdown-item" href="#">Tobi</a>
+	                                </div>
+	                          	</div>
 
                                 <!-- Search Form -->
                                 <div class="search-form">
@@ -96,17 +92,17 @@
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
                         </div>
 
-                       
-
                         <!-- Nav Start -->
                         <div class="classynav">
+<!-- ADD HOVER CSS FOR NAV OPTIONS -->
+<!-- class="active" not working atm -->
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
-                                	<li><a href="#!algo">All news</a></li>
-								<li><a href="#" ng-click="myFilter={category:'National'}">National</a></li>
-								<li><a href="#" ng-click="myFilter={category:'Economy'}">Economy</a></li>
-								<li><a href="#" ng-click="myFilter={category:'Sports'}">Sports</a></li>
-								<li><a href="#" ng-click="myFilter={category:'Technology'}">Technology</a></li>
+                                <li class="active" ng-click="myFilter=showAll">Home</li>
+                            	<li ng-click="myFilter=showAll">All news</a></li>
+								<li ng-click="myFilter={category:'National'}">National</a></li>
+								<li ng-click="myFilter={category:'Economy'}">Economy</a></li>
+								<li ng-click="myFilter={category:'Sports'}">Sports</a></li>
+								<li ng-click="myFilter={category:'Technology'}">Technology</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->
