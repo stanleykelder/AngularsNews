@@ -1,14 +1,14 @@
 # AngularsNews
 # commentada
 
-##git commands
-#git status 
+## git commands
+# git status 
 
-#git add README.md / *
-#git commit -m "......"
-#git push 
+# git add README.md / *
+# git commit -m "......"
+# git push 
 #
-#git pull
+# git pull
 #
 
 
