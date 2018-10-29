@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-8">
+                <td><a ng-click="createNewArticle()" class="btn btn-small btn-primary">Create new article</a></td>
                 <div class="row" ng-repeat="article in news | filter :myFilter ">
 
                     <!-- <div class="post_item post_h_large"> -->

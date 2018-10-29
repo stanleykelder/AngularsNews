@@ -7,27 +7,26 @@ var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 app.config(function($routeProvider) {
   $routeProvider
 	.when('/news-list', {
-		controller : 'NewsListCtrl',
-		redirectTo: 'news/news-list.html'
+		redirectTo: 'news/news-list.html',
+		controller : 'NewsListCtrl'
 		// controller : 'newscontrollerorsomething'
-	});
+	})
 
 	.when('/news-creation', {
-		controller : 'NewsListCtrl',
-		redirectTo: 'news/news-creation.html'
-	});
-
+		redirectTo: 'news/news-creation.html',
+		controller : 'NewsListCtrl'
+	})
 
 	.otherwise({
 		templateUrl : 'news/news-list.html', 
     	controller : 'NewsListCtrl'
     	// controller : 'controller1'
-    });
+    })
 });	
 
 
 
-
+// 
 // TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey
 // When the user is logged in, the apikey sent to the server must be updated to the
 // apikey received from the server and it must be done in a controller
