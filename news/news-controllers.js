@@ -7,7 +7,7 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
     $scope.editArticle = function (articleId) {
 
 		console.log("NewsListCtrl.editArticle: " + articleId);
-        $location.path('/news-detail/' + articleId);
+        $location.path('/news-edition/' + articleId);
     };
 
     // callback for ng-click 'deleteArticle':
@@ -27,6 +27,24 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
 
     $scope.news = NewsListService.query();
     //console.log($scope.news);
+});
+
+app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $location, NewsListService) {
+
+        // callback for ng-click 'updateArticle':
+        $scope.updateArticle = function () {
+            NewsListService.update($scope.article);
+            $window.alert("Article updated succesfully");
+            $location.path('/news-list');
+        };
+
+        // callback for ng-click 'cancel':
+        $scope.cancel = function () {
+            $location.path('/news-list');
+        };
+
+        // When loading the form we take the article info
+        $scope.news = NewsListService.show($routeParams.id);
 });
 
 app.controller('ArticleCreationCtrl', function ($scope, $location, $window, NewsListService) {

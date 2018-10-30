@@ -16,6 +16,10 @@ app.config(function($routeProvider) {
 		controller : 'ArticleCreationCtrl'
 	})
 
+	.when('/news-edition/:id', {
+		templateUrl: 'news/news-edition.html',
+		controller : 'ArticleDetailCtrl'
+	})
 	.when('/news-login', {
 		templateUrl: 'news/news-login.html'
 		// controller : 'ArticleCreationCtrl'
