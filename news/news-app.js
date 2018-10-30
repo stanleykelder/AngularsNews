@@ -7,23 +7,21 @@ var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 app.config(function($routeProvider) {
   $routeProvider
 	.when('/news-list', {
-		redirectTo: 'news/news-list.html',
+		templateUrl: 'news/news-list.html',
 		controller : 'NewsListCtrl'
 		// controller : 'newscontrollerorsomething'
 	})
 
 	.when('/news-creation', {
-		redirectTo: 'news/news-creation.html',
-		controller : 'NewsListCtrl'
+		templateUrl: 'news/news-creation.html',
+		controller : 'ArticleCreationCtrl'
 	})
 
 	.otherwise({
-		templateUrl : 'news/news-list.html', 
-    	controller : 'NewsListCtrl'
+		redirectTo : '/news-list'
     	// controller : 'controller1'
     })
 });	
-
 
 
 // 
