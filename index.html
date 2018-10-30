@@ -46,19 +46,13 @@
                                 <a href="index.html"><img img\logo.jpg" alt=""></a>
                             </div>
 
-                            <!-- Login Search Area -->
+                            <!-- Search Area -->
                             <div class="login-search-area d-flex align-items-center">
-
-	                            <!-- Login drop-down -->
-	                            <div class="dropdown">
-	                                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >Login</button>
-	                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-	                                  <a class="dropdown-item" href="#">Michael</a>
-	                                  <a class="dropdown-item" href="#">Stanley</a>
-	                                  <a class="dropdown-item" href="#">Tobi</a>
-	                                </div>
-	                          	</div>
-
+                            	<!-- Login -->
+                                <div class="login d-flex">
+                                    <a href="#!/news-login">Login</a>
+                                </div>
+<!-- IMPLEMENT SEARCH                                 -->
                                 <!-- Search Form -->
                                 <div class="search-form">
                                     <form action="#" method="post">
@@ -87,7 +81,9 @@
  -->
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            <span class="navbarToggler">
+                            	<!-- <span></span><span></span><span></span> -->
+                            </span>
                         </div>
 
                         <!-- Nav Start -->
@@ -95,13 +91,27 @@
 <!-- ADD HOVER CSS FOR NAV OPTIONS -->
 <!-- class="active" not working atm -->
                             <ul>
-                                <li class="active" ng-click="myFilter=showAll">Home</li>
-                            	<li ng-click="myFilter=showAll">All news</a></li>
-								<li ng-click="myFilter={category:'National'}">National</a></li>
-								<li ng-click="myFilter={category:'Economy'}">Economy</a></li>
+                                <li class="active" ng-click="myFilter=showAll"><a href="index.html"> Home</a></li>
+                            	<li ng-click="myFilter=showAll"><a href="index.html">All news</a></li>
+								<li ng-click="myFilter={category:'National'}"><a href="index.html">National</a></li>
+								<li ng-click="myFilter={category:'Economy'}"><a href="index.html">Economy</a></li>
 								<li ng-click="myFilter={category:'Sports'}">Sports</a></li>
 								<li ng-click="myFilter={category:'Technology'}">Technology</a></li>
                             </ul>
+
+                        	<!-- <span class="pull-right"> -->
+                            <!--  Login drop-down -->
+<!--
+	                            <div class="dropdown">
+	                                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >Login</button>
+	                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+	                                  <a class="dropdown-item" href="#">Michael</a>
+	                                  <a class="dropdown-item" href="#">Stanley</a>
+	                                  <a class="dropdown-item" href="#">Tobi</a>
+	                                </div>
+	                          	</div>
+	                        </span>  	
+-->
                         </div>
                         <!-- Nav End -->
 

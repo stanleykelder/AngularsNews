@@ -182,18 +182,8 @@ img {
     color: #fff;
     font-weight: 700;
     display: inline-block;
- 
     text-align: center; }
-.row{
 
-
-  padding: 0 30px;
-  
-    padding: 15px 30px;
- 
-
-
-}
 /* Miscellaneous */
 .bg-img {
   background-position: center center;
@@ -281,25 +271,6 @@ textarea:focus {
       right: 30px; } }
 
 /* Button */
-
-/*.dropdown-menu{
-  border: 1px solid green;
-  background-color: red; 
-  color: blue;
-  font-weight: 700;
-  letter-spacing: 1px;
-  z-index: 1000
-}
-.dropdown-item {
-  font-size:4px;
-  letter-spacing: 1px;
-  z-index: 100%
-}
-*/
-
-
-
-
 .newspaper-btn {
   display: inline-block;
   min-width: 160px;
@@ -319,10 +290,7 @@ textarea:focus {
     font-size: 14px;
     font-weight: 700;
     color: #ffffff;
-    background-color: #1c1c1c; 
-  
-  
-  }
+    background-color: #1c1c1c; }
 
 /* :: 4.0 Header Area */
 .header-area {
@@ -363,8 +331,7 @@ textarea:focus {
             display: none; } }
     .header-area .top-header-area .login-search-area {
       position: relative;
-      z-index: 1;
-     }
+      z-index: 1; }
       @media only screen and (min-width: 576px) and (max-width: 767px) {
         .header-area .top-header-area .login-search-area {
           margin-left: 30px; } }

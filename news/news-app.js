@@ -9,7 +9,6 @@ app.config(function($routeProvider) {
 	.when('/news-list', {
 		templateUrl: 'news/news-list.html',
 		controller : 'NewsListCtrl'
-		// controller : 'newscontrollerorsomething'
 	})
 
 	.when('/news-creation', {
@@ -17,9 +16,14 @@ app.config(function($routeProvider) {
 		controller : 'ArticleCreationCtrl'
 	})
 
+	.when('/news-login', {
+		templateUrl: 'news/news-login.html'
+		// controller : 'ArticleCreationCtrl'
+	})
+
 	.otherwise({
-		redirectTo : '/news-list'
-    	// controller : 'controller1'
+		redirectTo : '/news-list',
+		controller : 'NewsListCtrl'
     })
 });	
 
