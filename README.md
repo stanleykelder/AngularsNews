@@ -51,7 +51,7 @@
 
 
 
-# --news edition --
+# --news edition -- (tobi)
 
 -form that inculde all imput to edit/create the news (title, subitite, abstact, body and picture selcetion)
 
