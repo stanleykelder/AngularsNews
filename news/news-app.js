@@ -32,6 +32,9 @@ app.config(function($routeProvider) {
 });	
 
 
+app.run(function($rootScope) {
+    $rootScope.loggedIn = false;
+});
 // 
 // TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey
 // When the user is logged in, the apikey sent to the server must be updated to the

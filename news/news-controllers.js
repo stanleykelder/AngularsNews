@@ -2,6 +2,19 @@
 /////////////////////////////////////// NEWS CONTROLLERS /////////////////////////////////////////
 *************************************************************************************************/
 
+app.controller('HeaderCtrl', function ($scope, $rootScope, $location, $http, $window) {
+    $scope.logOut = function(){
+      console.log("logging out..");
+      if($window.confirm("Do you want to log out? Click OK if you really want to log out.")) {
+          $http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDM=';
+          $rootScope.loggedIn = false;
+      };
+    };
+
+
+});
+
+
 app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListService) {
     // callback for ng-click 'editArticle':
     $scope.editArticle = function (articleId) {
@@ -65,12 +78,12 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $http, NewsD
         };
 });
 
-// add rootScope variable?
-app.controller('LoginCtrl', function($scope, $rootScope, $http, LoginService){
+// add rootscope variable?
+app.controller('LoginCtrl', function($scope, $rootScope, $location, $http, LoginService){
     
     console.log($scope.user, $scope.password);
 
-    $scope.send = function(user, password) {
+    $scope.send = function() {
       // var loginres = {};
       // console.log($scope.user, $scope.password);  
       // console.log(LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
@@ -83,10 +96,16 @@ app.controller('LoginCtrl', function($scope, $rootScope, $http, LoginService){
         console.log(data.apikey)
         $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey
 
+        console.log($rootScope.loggedIn);
+        $rootScope.loggedIn = true;
+        $rootScope.idUser = data.user;
+        console.log($rootScope.loggedIn);
+
+        $location.path("/");
 
       },
       function (error){
-      
+        console.log(error);
       });
     };
 });
