@@ -58,12 +58,12 @@
                                 <div ng-if="loggedIn" class="login d-flex">
                                     <a href ng-click="logOut()">Logout</a>
                                 </div>
-<!-- IMPLEMENT SEARCH                                 -->
+
                                 <!-- Search Form -->
                                 <div class="search-form">
-                                    <form action="#" method="post">
+                                    <form>
                                         <input type="search" name="search" ng-model="searchFilter" class="form-control" placeholder="Search">
-                                        <button type="submit" ng-click=""><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        <!-- <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button> -->
                                     </form>
                                 </div>
                             </div>
@@ -86,41 +86,22 @@
                         </div>
  -->
                         <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler">
-                            	<!-- <span></span><span></span><span></span> -->
+                       <!--  <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span>
                             </span>
-                        </div>
-
+                        </div> -->
                         <!-- Nav Start -->
                         <div class="classynav">
-<!-- ADD HOVER CSS FOR NAV OPTIONS -->
-<!-- class="active" not working atm -->
                             <ul>
-                                <li ng-click="categoryFilter=showAll"><a href> Home</a></li>
+                                <li class="active" ng-click="categoryFilter=showAll"><a href> Home</a></li>
                             	<li ng-click="categoryFilter=showAll"><a href>All news</a></li>
 								<li ng-click="categoryFilter={category:'National'}"><a href>National</a></li>
 								<li ng-click="categoryFilter={category:'Economy'}"><a href>Economy</a></li>
 								<li ng-click="categoryFilter={category:'Sports'}"><a href>Sports</a></li>
 								<li ng-click="categoryFilter={category:'Technology'}"><a href>Technology</a></li>
                             </ul>
-
-                        	<!-- <span class="pull-right"> -->
-                            <!--  Login drop-down -->
-<!--
-	                            <div class="dropdown">
-	                                <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >Login</button>
-	                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-	                                  <a class="dropdown-item" href="#">Michael</a>
-	                                  <a class="dropdown-item" href="#">Stanley</a>
-	                                  <a class="dropdown-item" href="#">Tobi</a>
-	                                </div>
-	                          	</div>
-	                        </span>  	
--->
                         </div>
                         <!-- Nav End -->
-
                     </nav>
                 </div>
             </div>

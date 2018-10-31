@@ -20,7 +20,7 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
     $scope.editArticle = function (articleId) {
 
 		console.log("NewsListCtrl.editArticle: " + articleId);
-        $location.path('/news-detail/' + articleId);
+        $location.path('/news-show/' + articleId);
     };
 
     // callback for ng-click 'deleteArticle':
