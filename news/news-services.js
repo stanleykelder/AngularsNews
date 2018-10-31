@@ -22,7 +22,7 @@
 app.factory('LoginService', ['$resource', function ($resource) {
 	return $resource('http://sanger.dia.fi.upm.es/pui-rest-news/login', {},
 		{
-			login: {method: 'post', params: {passwd: password, username: user}}
+			login: {method: 'post'}
 		})
 }]);
 
