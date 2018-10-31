@@ -29,7 +29,7 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
     //console.log($scope.news);
 });
 
-app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $location, NewsListService) {
+app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $location, NewsDetailsService) {
 
         // callback for ng-click 'updateArticle':
         $scope.updateArticle = function () {
@@ -44,7 +44,7 @@ app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $lo
         };
 
         // When loading the form we take the article info
-        $scope.news = NewsListService.show($routeParams.id);
+        $scope.news = NewsDetailsService.save($routeParams.id);
 });
 
 app.controller('ArticleCreationCtrl', function ($scope, $location, $window, NewsListService) {
