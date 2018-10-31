@@ -46,7 +46,7 @@
                                 <a href="index.html"><img img\logo.jpg" alt=""></a>
                             </div>
 
-                            <!-- Search Area -->
+                            <!-- Search and Login Area -->
                             <div class="login-search-area d-flex align-items-center">
                             	<!-- Login -->
                                 <div class="login d-flex">
@@ -56,8 +56,8 @@
                                 <!-- Search Form -->
                                 <div class="search-form">
                                     <form action="#" method="post">
-                                        <input type="search" name="search" class="form-control" placeholder="Search">
-                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        <input type="search" name="search" ng-model="searchFilter" class="form-control" placeholder="Search">
+                                        <button type="submit" ng-click=""><i class="fa fa-search" aria-hidden="true"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -91,12 +91,12 @@
 <!-- ADD HOVER CSS FOR NAV OPTIONS -->
 <!-- class="active" not working atm -->
                             <ul>
-                                <li class="active" ng-click="myFilter=showAll"><a href="index.html"> Home</a></li>
-                            	<li ng-click="myFilter=showAll"><a href="index.html">All news</a></li>
-								<li ng-click="myFilter={category:'National'}"><a href="index.html">National</a></li>
-								<li ng-click="myFilter={category:'Economy'}"><a href="index.html">Economy</a></li>
-								<li ng-click="myFilter={category:'Sports'}">Sports</a></li>
-								<li ng-click="myFilter={category:'Technology'}">Technology</a></li>
+                                <li ng-click="categoryFilter=showAll"><a href> Home</a></li>
+                            	<li ng-click="categoryFilter=showAll"><a href>All news</a></li>
+								<li ng-click="categoryFilter={category:'National'}"><a href>National</a></li>
+								<li ng-click="categoryFilter={category:'Economy'}"><a href>Economy</a></li>
+								<li ng-click="categoryFilter={category:'Sports'}"><a href>Sports</a></li>
+								<li ng-click="categoryFilter={category:'Technology'}"><a href>Technology</a></li>
                             </ul>
 
                         	<!-- <span class="pull-right"> -->

@@ -4,23 +4,23 @@
         <div class="row">
             <div class="col-md-6 col-lg-8">
                 <td><a ng-click="createNewArticle()" class="btn btn-small btn-primary">Create new article</a></td>
-                <div class="row" ng-repeat="article in news | filter :myFilter ">
+                <div class="row" ng-repeat="article in news | filter : categoryFilter | filter: searchFilter">
 
                     <!-- <div class="post_item post_h_large"> -->
                         <!-- <div class="row" ng-repeat="article in news | filter :myFilter "> -->
                             
                     <!-- Render images of news-->
                     <div class="col-lg-5">
-                        <div class="post_image"><img  ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></div>
+                        <div class="post_image"><a href="#"><img  ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></a></div>
                     </div>
         
                     <!-- Render content parts of news -->
 <!-- ADD APPROPIATE CLASSES! -->
 <!-- ADD NG-CLICKS and REMOVE HREFS -->
                     <div class="" >
-                        <div class="post_category cat_technology"><a href="#">{{article.category}} </a></div>
+                        <div class="post_category cat_technology">{{article.category}}</div>
 
-                        <div class="post_title"><a href="#">{{article.title}} </a></div>
+                        <div class="post_title"><a href>{{article.title}} </a></div>
 
                         <div class="post_info d-flex flex-row align-items-center justify-content-start">
                             <div class="post_author d-flex flex-row align-items-center justify-content-start">
@@ -28,10 +28,10 @@
 <!-- Why author image? -->
                                 <div> <div class="post_author_image"><img alt=""></div> </div>
 
-                                <div class="post_author_name"><a href="#">{{article.id_user}}</a> </div>
+                                <div class="post_author_name">{{article.id_user}}</div>
                             </div>
                             
-                            <div class="post_date"><a href="#">{{article.update_date}}</a></div> 
+                            <div class="post_date">{{article.update_date}}</div> 
                             
                         </div>
 
