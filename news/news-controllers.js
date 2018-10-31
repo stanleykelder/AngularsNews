@@ -39,18 +39,53 @@ app.controller('ArticleCreationCtrl', function ($scope, $location, $window, News
         }
 });
 
+// add rootscope variable?
+app.controller('LoginCtrl', function($scope, $rootScope, $http, LoginService){
+    
+    console.log($scope.user, $scope.password);
 
-app.controller('LoginController', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
-  $scope.credentials = {
-    username: '',
-    password: ''
-  };
-  $scope.login = function (credentials) {
-    AuthService.login(credentials).then(function (user) {
-      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-      $scope.setCurrentUser(user);
-    }, function () {
-      $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-    });
-  };
+    $scope.send = function(user, password) {
+      // var loginres = {};
+      // console.log($scope.user, $scope.password);  
+      // console.log(LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
+      //   var error = function (error) {
+      //     console.log("error");
+      //   };
+      // }));
+      LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
+        console.log(data);
+        console.log(data.apikey)
+        $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey
+
+
+      },
+      function (error){
+      
+      });
+    };
 });
+   
+
+
+   //  // ['$scope', '$rootScope', '$location', 'LoginService',
+   //  function ($scope, $rootScope, $location, LoginService) {
+   //      // reset login status
+   //      AuthenticationService.ClearCredentials();
+ 
+   //      console.log("helloow?");
+
+   //      $scope.login = function () {
+   //      	$log.log("test");
+			// console.log("test");
+   //          $scope.dataLoading = true;
+   //          AuthenticationService.Login($scope.username, $scope.password, function(response) {
+   //              if(response.success) {
+   //                  AuthenticationService.SetCredentials($scope.username, $scope.password);
+   //                  $location.path('/');
+   //              } else {
+   //                  $scope.error = response.message;
+   //                  $scope.dataLoading = false;
+   //              }
+   //          });
+   //      };
+   //  });
