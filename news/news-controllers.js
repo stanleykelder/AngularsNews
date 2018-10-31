@@ -47,17 +47,26 @@ app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $lo
         $scope.news = NewsDetailsService.save($routeParams.id);
 });
 
-app.controller('ArticleCreationCtrl', function ($scope, $location, $window, NewsListService) {
+app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $window, NewsDetailsService) {
 
-	// callback for ng-click 'createNewArticle':
-    $scope.createNewArticle = function () {
-            NewsListService.create($scope.article);
+    console.log($rootScope.idUser, $scope.abstract, $scope.subtitle, $scope.update_date, $scope.category, $scope.title, $scope.image_data, $scope.body);
+
+    $scope.createNewArticle = function (title, subtitle, category, abstract, body, img) {
+            
+            NewsDetailsService.save({id_user: $rootScope.idUser, abstract: $scope.abstract, subtitle: $scope.subtitle, $scope.update_date: new Date(), category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
+            
+            console.log(data)
+            //TODO: show if it was successful or not
             $window.alert("Article created succesfully");
             $location.path('/article-list');
-        }
+            },
+            function(error){
+
+            });
+        };
 });
 
-// add rootscope variable?
+// add rootScope variable?
 app.controller('LoginCtrl', function($scope, $rootScope, $http, LoginService){
     
     console.log($scope.user, $scope.password);

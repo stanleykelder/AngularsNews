@@ -1,13 +1,3 @@
-<!-- // {"id":...,
-//  "id_user":...,
-//  "abstract":...,
-//  "subtitle":...,
-//  "update_date":...,
-//  "category":...,
-//  "title":...,
-//  "image_data":...,
-//  "image_media_type":...} -->
-
 
 <div class="container">
     <h1 style="color:blue; text-align: center;font-size: 40px;">EIT Digital News</h1>
@@ -18,7 +8,7 @@
             <label class="control-label" for="Titles">Title:</label>
 
             <div class="controls">
-                <input style=" margin: 8px 0;" type="text" id="title" ng-model="article.title" name="Title" placeholder="Title" required/>
+                <input style=" margin: 8px 0;" type="text" id="title" ng-model="title" name="Title" placeholder="Title" required/>
                 <!-- <span class="text-warning" ng-show="userForm.fName.$dirty && userForm.fName.$invalid"> -->
                         <!-- <span ng-show="userForm.fName.$error.required">Name is required.</span> -->
                 </span>
@@ -27,7 +17,7 @@
         <div class="control-group">
             <label class="control-label" for="inputLastName">Subtitle:</label>
             <div class="controls">
-                <input style=" margin: 8px 0;" type="text" id="subtitle" ng-model="article.subtitle" name="Subtitle" placeholder="Subtitle" required/>
+                <input style=" margin: 8px 0;" type="text" id="subtitle" ng-model="subtitle" name="Subtitle" placeholder="Subtitle" required/>
                 <!-- <span class="text-warning" ng-show="userForm.email.$dirty && userForm.email.$invalid"> -->
                     <!-- <span ng-show="userForm.email.$error.required">Email is required.</span> -->
                     <!-- <span ng-show="userForm.email.$error.email">Invalid email address.</span> -->
@@ -36,7 +26,7 @@
         </div>
         
         <div class="filter"> Category:
-            <select id="category" ng-model="user.category"  style=" margin: 8px 0;" ng-model="order">
+            <select id="category" ng-model="category"  style=" margin: 8px 0;" ng-model="order">
               
               <option value="National">National </option>
               <option value="Economy">Economy</option>
@@ -50,7 +40,7 @@
     </br>
         <md-input-container  class="md-block">
            
-            <textarea  id="abstract"style=" margin: 8px 0;" ng-model="user.abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
+            <textarea  id="abstract"style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
         </md-input-container>
 
     </br>
@@ -59,7 +49,7 @@
             </br>
             <label>Body</label>
         </br>
-            <textarea id="body"  style=" margin: 8px 0;" ng-model="user.body" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <textarea id="body"  style=" margin: 8px 0;" ng-model="body" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
     
 
@@ -68,19 +58,19 @@
         <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
  
         <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
-        <input style=" margin: 8px 0;"type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> 
+        <input style=" margin: 8px 0;"type="file" ng-file-select="onFileSelect($files);" ng-model="img"></input> 
 
         <div class="control-group">
 
                 <div class="controls">   <!--   <div class="text-right"></div> -->
                         <input style=" float:Right; margin: 8px 0;   padding: 15px 32px;" type="button" ng-click="createNewArticle()" class="btn btn-small btn-primary" 
-                        ng-disabled="userForm.fName.$invalid || userForm.email.$invalid"
+                        ng-disabled="userForm.fName.$invalid"
                         value="Save"> 
                 </div>
 
             <div class="controls">
-                <input style="   float:Right;margin: 8px 0; margin-right:10px;  padding: 15px 32px;" type="button" ng-click="createNewUser()" class="btn btn-small btn-primary" 
-                ng-disabled="userForm.fName.$invalid || userForm.email.$invalid"
+                <input style="   float:Right;margin: 8px 0; margin-right:10px;  padding: 15px 32px;" type="button" ng-click="cancel()" class="btn btn-small btn-primary" 
+                ng-disabled="userForm.fName.$invalid"
                 value="Back to List"> 
             </div>
 
