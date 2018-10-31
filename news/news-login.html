@@ -1,14 +1,24 @@
-<form name="loginForm" ng-controller="LoginController"
-      ng-submit="login(credentials)" novalidate>
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
+<div>
 
-  <label for="username">Username:</label>
-  <input type="text" id="username"
-         ng-model="credentials.username">
+<form name="form" ng-submit="login()" role="form">
 
-  <label for="password">Password:</label>
-  <input type="password" id="password"
-         ng-model="credentials.password">
+    <div class="form-group">
+        <label for="user">Username</label>
+        <i class="fa fa-key"></i>
+        <input type="text" name="usern" id="user" class="form-control" ng-model="user" placeholder="your name" required >
+        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" id="password" class="form-control" ng-model="password" placeholder="found in email" required>
+        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+    </div>
 
-  <button type="submit">Login</button>
+    <div class="form-actions">
+        <button type="submit" ng-click="send(password, user)" ng-disabled="form.$invalid || dataLoading" class="btn btn-danger">Login</button>
+    </div>
 
 </form>
+</div>

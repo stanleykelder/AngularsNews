@@ -21,8 +21,8 @@ app.config(function($routeProvider) {
 		controller : 'ArticleDetailCtrl'
 	})
 	.when('/news-login', {
-		templateUrl: 'news/news-login.html'
-		// controller : 'ArticleCreationCtrl'
+		templateUrl: 'news/news-login.html',
+		controller : 'LoginCtrl'
 	})
 
 	.otherwise({
