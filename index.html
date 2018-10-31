@@ -25,12 +25,15 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="css/app.css">
 
+    <!-- Style sheet for log in/out button -->
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 
 <body ng-app="newssapp">
 	
     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
+    <header ng-controller="HeaderCtrl" class="header-area">
 
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -49,8 +52,11 @@
                             <!-- Search and Login Area -->
                             <div class="login-search-area d-flex align-items-center">
                             	<!-- Login -->
-                                <div class="login d-flex">
+                                <div ng-if="!loggedIn" class="login d-flex">
                                     <a href="#!/news-login">Login</a>
+                                </div>
+                                <div ng-if="loggedIn" class="login d-flex">
+                                    <a href ng-click="logOut()">Logout</a>
                                 </div>
 <!-- IMPLEMENT SEARCH                                 -->
                                 <!-- Search Form -->

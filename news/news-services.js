@@ -20,20 +20,6 @@
 // }]);
 
 app.factory('LoginService', ['$resource', function ($resource) {
-	var service= {};
-
-	service.Login = function (user, password, callback){
-		$timeout(function(){
-				var response = { success: username === 'stanley.kelder' && password === '30d58b16' };
-                if(!response.success) {
-                    response.message = 'Username or password is incorrect';
-                }
-                callback(response);
-            }, 1000);
-		return service;
-	}; 
-
-
 	return $resource('http://sanger.dia.fi.upm.es/pui-rest-news/login', {},
 		{
 			login: {method: 'post', params: {passwd: password, username: user}}
