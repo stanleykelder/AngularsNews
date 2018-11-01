@@ -2,7 +2,7 @@
 /////////////////////////////////////// NEWS CONTROLLERS /////////////////////////////////////////
 *************************************************************************************************/
 
-app.controller('HeaderCtrl', function ($scope, $rootScope, $location, $http, $window) {
+app.controller('LogoutCtrl', function ($scope, $rootScope, $location, $http, $window) {
     $scope.logOut = function(){
       console.log("logging out..");
       if($window.confirm("Do you want to log out? Click OK if you really want to log out.")) {
@@ -10,12 +10,24 @@ app.controller('HeaderCtrl', function ($scope, $rootScope, $location, $http, $wi
           $rootScope.loggedIn = false;
       };
     };
-
+    // callback for ng-click 'createNews':
+    $scope.createNewArticle = function () {
+      console.log("NewsListCtrl.newArticle");
+      $location.path('/news-creation');
+    };
 
 });
 
 
-app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListService, NewsDetailsService) {
+app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, $window, NewsListService, NewsDetailsService) {
+    $rootScope.newsList = true;
+
+    console.log("Holii Blanca!")
+
+    $scope.$on('$locationChangeSuccess', function(event) {
+      $rootScope.newsList = !$rootScope.newsList;
+    });
+
     // callback for ng-click 'editArticle':
     $scope.editArticle = function (articleId) {
 
@@ -30,21 +42,21 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
             NewsDetailsService.delete({id: articleId.id}, function(data) {
                 console.log(data)
                 $window.alert("Article deleted succesfully");
+                $route.reload();
             },
             function(error){
                 console.log(error);
             });
-        }
+        };
     };
 
-    // callback for ng-click 'createNews':
-    $scope.createNewArticle = function () {
-    	console.log("NewsListCtrl.newArticle");
-    	$location.path('/news-creation');
-    };
-
-    $scope.news = NewsListService.query();
-    //console.log($scope.news);
+    // Get news from server
+    NewsListService.query({}, function(news) {
+      $scope.news = news;
+    }, 
+    function(error){
+      console.log(error);
+    });
 });
 
 app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $location, NewsDetailsService) {
@@ -85,57 +97,19 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $http, NewsD
 
 // add rootscope variable?
 app.controller('LoginCtrl', function($scope, $rootScope, $location, $http, LoginService){
-    
-    console.log($scope.user, $scope.password);
-
     $scope.send = function() {
-      // var loginres = {};
-      // console.log($scope.user, $scope.password);  
-      // console.log(LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
-      //   var error = function (error) {
-      //     console.log("error");
-      //   };
-      // }));
       LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
-        console.log(data);
-        console.log(data.apikey)
         $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey
 
-        console.log($rootScope.loggedIn);
         $rootScope.loggedIn = true;
         $rootScope.idUser = data.user;
-        console.log($rootScope.loggedIn);
 
         $location.path("/");
-
       },
       function (error){
         console.log(error);
+        // CHANGE TO READABLE ERROR
+        $window.alert(error);
       });
     };
 });
-   
-
-
-   //  // ['$scope', '$rootScope', '$location', 'LoginService',
-   //  function ($scope, $rootScope, $location, LoginService) {
-   //      // reset login status
-   //      AuthenticationService.ClearCredentials();
- 
-   //      console.log("helloow?");
-
-   //      $scope.login = function () {
-   //      	$log.log("test");
-			// console.log("test");
-   //          $scope.dataLoading = true;
-   //          AuthenticationService.Login($scope.username, $scope.password, function(response) {
-   //              if(response.success) {
-   //                  AuthenticationService.SetCredentials($scope.username, $scope.password);
-   //                  $location.path('/');
-   //              } else {
-   //                  $scope.error = response.message;
-   //                  $scope.dataLoading = false;
-   //              }
-   //          });
-   //      };
-   //  });

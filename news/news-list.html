@@ -2,27 +2,16 @@
 <div class="featured-post-area">
     <div class="container">
         <!-- Move this button somehwere else -->                
-                <td><a ng-if="loggedIn" ng-click="createNewArticle()" class="btn btn-small btn-primary">Create new article</a></td>
                 
 
         <div class="row">
 
-<!-- 
-
-I think this is the problem with the filter:
-
-Angular filters cannot handle an object of objects as input. ng-repeat can render them, but filters expect an array of objects. The easiest way to fix this is to let the server return an array without named keys. You could also transform the response in angular after each request (more expensive).
-
-https://stackoverflow.com/questions/17672614/angularjs-filter-not-working
-
--->
-
             <!-- Single Featured Post -->
             <div class="col-lg-8">
                 <div class="col-lg-6" ng-repeat="article in news | filter: categoryFilter | filter: searchFilter">
-                <div class="single-blog-post featured-post">
+                <div class="single-blog-post featured-post border">
                     <div class="post-thumb">
-                        <a href="#!/news-show"><img ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></a>
+                        <a href="#!/news-show"><img ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></img></a>
                     </div>
                     <div class="post-data">
                         {{article.category}}
@@ -35,10 +24,11 @@ https://stackoverflow.com/questions/17672614/angularjs-filter-not-working
                             <p class="post-author">Last modified on {{article.update_date}}</p>
                             <p class="post-excerp">{{article.abstract}} </p>
                         </div>
+                        <td><a ng-if="loggedIn" ng-click="editArticle(article.id)" class="btn btn-small btn-primary">edit</a></td>
+                        <td><a ng-if="loggedIn" ng-click="deleteArticle(article)" class="btn btn-small btn-danger">delete</a></td>
                     </div>
                 </div>
-                    <td><a ng-if="loggedIn" ng-click="editArticle(article.id)" class="btn btn-small btn-primary">edit</a></td>
-                    <td><a ng-if="loggedIn" ng-click="deleteArticle(article)" class="btn btn-small btn-danger">delete</a></td>
+                 
                 </div>
             </div>      
 
