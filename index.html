@@ -91,14 +91,16 @@
                             </span>
                         </div> -->
                         <!-- Nav Start -->
+
+<!-- Possibly only show home with link when not in news-list -->
                         <div class="classynav">
                             <ul>
-                                <li class="active" ng-click="categoryFilter=showAll"><a href> Home</a></li>
-                            	<li ng-click="categoryFilter=showAll"><a href>All news</a></li>
-								<li ng-click="categoryFilter={category:'National'}"><a href>National</a></li>
-								<li ng-click="categoryFilter={category:'Economy'}"><a href>Economy</a></li>
-								<li ng-click="categoryFilter={category:'Sports'}"><a href>Sports</a></li>
-								<li ng-click="categoryFilter={category:'Technology'}"><a href>Technology</a></li>
+                                <li ng-click="categoryFilter=showAll"><a href="#"> Home</a></li>
+                            	<li ng-click="categoryFilter=showAll"><a href="#">All news</a></li>
+								<li ng-click="categoryFilter={category:'National'}"><a href="#">National</a></li>
+								<li ng-click="categoryFilter={category:'Economy'}"><a href="#">Economy</a></li>
+								<li ng-click="categoryFilter={category:'Sports'}"><a href="#">Sports</a></li>
+								<li ng-click="categoryFilter={category:'Technology'}"><a href="#">Technology</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

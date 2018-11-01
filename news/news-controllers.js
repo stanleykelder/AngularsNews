@@ -3,6 +3,7 @@
 *************************************************************************************************/
 
 app.controller('HeaderCtrl', function ($scope, $rootScope, $location, $http, $window) {
+    // Log out user
     $scope.logOut = function(){
       console.log("logging out..");
       if($window.confirm("Do you want to log out? Click OK if you really want to log out.")) {
@@ -10,8 +11,6 @@ app.controller('HeaderCtrl', function ($scope, $rootScope, $location, $http, $wi
           $rootScope.loggedIn = false;
       };
     };
-
-
 });
 
 
@@ -42,6 +41,7 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
     //console.log($scope.news);
 });
 
+
 app.controller('ArticleCreationCtrl', function ($scope, $location, $window, NewsListService) {
 
 	// callback for ng-click 'createNewArticle':
@@ -52,59 +52,22 @@ app.controller('ArticleCreationCtrl', function ($scope, $location, $window, News
         }
 });
 
-// add rootscope variable?
-app.controller('LoginCtrl', function($scope, $rootScope, $location, $http, LoginService){
-    
-    console.log($scope.user, $scope.password);
 
+app.controller('LoginCtrl', function($scope, $rootScope, $location, $http, $window, LoginService){
     $scope.send = function() {
-      // var loginres = {};
-      // console.log($scope.user, $scope.password);  
-      // console.log(LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
-      //   var error = function (error) {
-      //     console.log("error");
-      //   };
-      // }));
       LoginService.login({passwd: $scope.password, username: $scope.user}, function(data) {
-        console.log(data);
-        console.log(data.apikey)
         $http.defaults.headers.common['Authorization'] = data.Authorization + ' apikey=' + data.apikey
 
-        console.log($rootScope.loggedIn);
         $rootScope.loggedIn = true;
         $rootScope.idUser = data.user;
-        console.log($rootScope.loggedIn);
-
         $location.path("/");
-
       },
       function (error){
-        console.log(error);
+        if (error.data.status == 401){
+          $window.alert("username or password seems to be incorrect");
+        } else {
+          $window.alert(error.data.status + "\n" + error.data.details);  
+        }
       });
     };
 });
-   
-
-
-   //  // ['$scope', '$rootScope', '$location', 'LoginService',
-   //  function ($scope, $rootScope, $location, LoginService) {
-   //      // reset login status
-   //      AuthenticationService.ClearCredentials();
- 
-   //      console.log("helloow?");
-
-   //      $scope.login = function () {
-   //      	$log.log("test");
-			// console.log("test");
-   //          $scope.dataLoading = true;
-   //          AuthenticationService.Login($scope.username, $scope.password, function(response) {
-   //              if(response.success) {
-   //                  AuthenticationService.SetCredentials($scope.username, $scope.password);
-   //                  $location.path('/');
-   //              } else {
-   //                  $scope.error = response.message;
-   //                  $scope.dataLoading = false;
-   //              }
-   //          });
-   //      };
-   //  });

@@ -1,51 +1,48 @@
 <!-- ##### Featured Post Area Start ##### -->
 <div class="featured-post-area">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-8">
-                <td><a ng-click="createNewArticle()" class="btn btn-small btn-primary">Create new article</a></td>
+        <!-- Move this button somehwere else -->                
+                <td><a ng-if="loggedIn" ng-click="createNewArticle()" class="btn btn-small btn-primary">Create new article</a></td>
                 
-                <div class="row" ng-repeat="article in news | filter: categoryFilter | filter: searchFilter">
 
-                    <!-- Render images of news-->
-                    <div class="col-lg-5">
-                        <div class="post_image"><a href="#"><img  ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></a></div>
+        <div class="row">
+
+<!-- 
+
+Angular filters cannot handle an object of objects as input. ng-repeat can render them, but filters expect an array of objects. The easiest way to fix this is to let the server return an array without named keys. You could also transform the response in angular after each request (more expensive).
+
+https://stackoverflow.com/questions/17672614/angularjs-filter-not-working
+
+-->
+
+            <!-- Single Featured Post -->
+            <div class="col-lg-8">
+                <div class="col-lg-6" ng-repeat="article in news | filter: categoryFilter | filter: searchFilter">
+                <div class="single-blog-post featured-post">
+                    <div class="post-thumb">
+                        <a href="#!/news-show"><img ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></a>
                     </div>
-        
-                    <!-- Render content parts of news -->
-                    <div class="">
-                        <div class="post_category cat_technology">{{article.category}}</div>
-
-                        <div class="post_title"><a href>{{article.title}} </a></div>
-
-                        <div class="post_info d-flex flex-row align-items-center justify-content-start">
-                            <div class="post_author d-flex flex-row align-items-center justify-content-start">
-
-<!-- Why author image? -->
-                                <div> <div class="post_author_image"><img alt=""></div> </div>
-
-                                <div class="post_author_name">{{article.id_user}}</div>
-                            </div>
+                    <div class="post-data">
+                        {{article.category}}
+                        <a href="#!/news-show" class="post-title">
+                            <h1>{{article.title}}</h1>
+                        </a>
+                            <h4>{{article.subtitle}}</h4>
+                        <div class="post-meta">
+                            <p class="post-author">By {{article.id_user}}</p>
+                            <p class="post-author">Last modified on {{article.update_date}}</p>
+                            <p class="post-excerp">{{article.abstract}} </p>
                         </div>
-                            
-                        <div class="post_date">{{article.update_date}}</div> 
-                            
-
-                        <!-- render subtitle -->
-                        <div class="post_text">
-                            <p>{{article.subtitle}}.</p>
-                        </div>
-                    </div>
-                    <div>
-                    <td><a ng-click="editArticle(article.id)" class="btn btn-small btn-primary">edit</a></td>
-                    <td><a ng-click="deleteArticle(article)" class="btn btn-small btn-danger">delete</a></td>
                     </div>
                 </div>
-            </div>
+                </div>
+            </div>      
 
-            <!-- Twitter timeline -->
-            <div class="single-blog-post small-featured-post d-flex">
-                <a class="twitter-timeline" data-height="800" href="https://twitter.com/EIT_Digital">Tweets by EIT Digital</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                <!-- Twitter timeline -->
+            <div class="col-lg-4 hidden-md hidden-sm hidden-xs">
+                <div class="single-blog-post small-featured-post d-flex hidden-md">
+                    <a class="twitter-timeline" data-height="800" href="https://twitter.com/EIT_Digital">Tweets by EIT Digital</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                </div>
             </div>
         </div>
     </div>
