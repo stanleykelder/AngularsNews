@@ -15,7 +15,7 @@ app.controller('HeaderCtrl', function ($scope, $rootScope, $location, $http, $wi
 });
 
 
-app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListService) {
+app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListService, NewsDetailsService) {
     // callback for ng-click 'editArticle':
     $scope.editArticle = function (articleId) {
 
@@ -24,11 +24,16 @@ app.controller('NewsListCtrl', function ($scope, $location, $window, NewsListSer
     };
 
     // callback for ng-click 'deleteArticle':
-    $scope.deleteArticle = function (articleDel) {
-		console.log("NewsListCtrl.deleteArticle: " + articleDel);
-        if (confirm('The article: "' + articleDel.title + '" is going to be removed. Are you sure?')) {
-            NewsListService.delete(articleDel.id);
-            $window.alert("Article deleted succesfully");
+    $scope.deleteArticle = function (articleId) {
+		console.log("NewsDetailsService.deleteArticle: " + articleId);
+        if (confirm('The article: "' + articleId.title + '" is going to be removed. Are you sure?')) {
+            NewsDetailsService.delete({id: articleId.id}, function(data) {
+                console.log(data)
+                $window.alert("Article deleted succesfully");
+            },
+            function(error){
+                console.log(error);
+            });
         }
     };
 
