@@ -30,9 +30,9 @@ app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, 
 
     // callback for ng-click 'editArticle':
     $scope.editArticle = function (articleId) {
-
+        $rootScope.id = articleId;
 		console.log("NewsListCtrl.editArticle: " + articleId);
-    $location.path('/news-edition/' + articleId);
+        $location.path('/news-edition/' + articleId);
     };
 
     // callback for ng-click 'deleteArticle':
@@ -60,13 +60,21 @@ app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, 
     });
 });
 
-app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $location, NewsDetailsService) {
+app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, $window, $location, NewsDetailsService) {
 
+        console.log($scope.id + 'ArticleDetailCtrl')
         // callback for ng-click 'updateArticle':
         $scope.updateArticle = function () {
-            NewsListService.update($scope.article);
-            $window.alert("Article updated succesfully");
-            $location.path('/news-list');
+            NewsDetailsService.save({id: $rootScope.id, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
+                
+                console.log(data)
+                //TODO: 500 error
+                $window.alert("Article updated succesfully");
+                $location.path('/news-list');
+            },
+            function(error){
+                console.log(error);
+            });
         };
 
         // callback for ng-click 'cancel':
@@ -75,7 +83,11 @@ app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $lo
         };
 
         // When loading the form we take the article info
-        $scope.news = NewsDetailsService.get($routeParams.id);
+        $scope.news = NewsDetailsService.get({id: $rootScope.id}, function(data) {
+            console.log(data) 
+            console.log('ArticleDetailCtrl')
+            $scope.article = data
+        });
 });
 
 app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $http, NewsDetailsService) {
