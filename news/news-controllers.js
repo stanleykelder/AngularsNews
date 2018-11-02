@@ -45,6 +45,7 @@ app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, 
                 $route.reload();
             },
             function(error){
+                $window.alert('We were not able to delete this article because of' + error);
                 console.log(error);
             });
         };
@@ -70,12 +71,11 @@ app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $lo
 
         // callback for ng-click 'cancel':
         $scope.cancel = function () {
-            console.log('jkgakljdfkalh')
             $location.path('/news-list');
         };
 
         // When loading the form we take the article info
-        $scope.news = NewsDetailsService.save($routeParams.id);
+        $scope.news = NewsDetailsService.get($routeParams.id);
 });
 
 app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $http, NewsDetailsService) {
@@ -96,7 +96,6 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $
         };
     // callback for ng-click 'cancel':
     $scope.cancel = function () {
-        console.log('jkgakljdfkalh')
         $location.path("/");
         };
 });
