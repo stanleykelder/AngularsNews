@@ -70,6 +70,7 @@ app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $lo
 
         // callback for ng-click 'cancel':
         $scope.cancel = function () {
+            console.log('jkgakljdfkalh')
             $location.path('/news-list');
         };
 
@@ -77,7 +78,7 @@ app.controller('ArticleDetailCtrl', function ($scope, $routeParams, $window, $lo
         $scope.news = NewsDetailsService.save($routeParams.id);
 });
 
-app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $http, NewsDetailsService) {
+app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $http, NewsDetailsService) {
 
     console.log($rootScope.idUser, $scope.abstract, $scope.subtitle, $scope.update_date, $scope.category, $scope.title, $scope.image_data, $scope.body);
 
@@ -92,6 +93,11 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $http, NewsD
             function(error){
                 console.log(error);
             });
+        };
+    // callback for ng-click 'cancel':
+    $scope.cancel = function () {
+        console.log('jkgakljdfkalh')
+        $location.path("/");
         };
 });
 
