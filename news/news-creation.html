@@ -5,7 +5,7 @@
                                        
     <form novalidate name="articleForm" class="form-horizontal">
         <div class="control-group">
-            <label class="control-label" for="title">Title:</label>
+            <label class="control-label" for="title">Title:(*)</label>
             <div class="controls">
                 <input style=" margin: 8px 0;" type="text" id="title" ng-model="title" name="title" placeholder="Title" required/>
                 <span class="text-warning" ng-show="articleForm.title.$dirty && articleForm.title.$invalid">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="subtitle">Subtitle:</label>
+            <label class="control-label" for="subtitle">Subtitle:(*)</label>
             <div class="controls">
                 <input style=" margin: 8px 0;" type="text" id="subtitle" ng-model="subtitle" name="subtitle" placeholder="Subtitle" required/>
                 <span class="text-warning" ng-show="articleForm.subtitle.$dirty && articleForm.subtitle.$invalid">
@@ -24,38 +24,43 @@
             </div>
         </div>
         
-        <div class="filter"> Category:
-            <select id="category" ng-model="category"  style=" margin: 8px 0;">
-                <option value="National">National </option>
-                <option value="Economy">Economy</option>
-                <option value="Sports">Sports</option>
-                <option value="Technology">Technology</option>
-                <span class="text-warning" ng-show="articleForm.category.$dirty && articleForm.category.$invalid">
-                <span ng-show="articleForm.category.$error.required">Category is required.</span>
-                </span>
-            </select>
+        <div class="filter">
+            <label class="control-label" for="category">Category:(*)</label>
+            <div class="controls">
+                <select id="category" ng-model="category"  style=" margin: 8px 0;">
+                    <option value="National">National </option>
+                    <option value="Economy">Economy</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Technology">Technology</option>
+                    <span class="text-warning" ng-show="articleForm.category.$dirty && articleForm.category.$invalid">
+                    <span ng-show="articleForm.category.$error.required">Category is required.</span>
+                    </span>
+                </select>
+            </div>
         </div>
-    </br>
-        <label>Abstract</label>
-    </br>
-        <md-input-container  class="md-block">
-           
-            <textarea  id="abstract"style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
-            <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
-            <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
-            </span>
-        </md-input-container>
-    </br>
-        <label>Body</label>
-    </br>
-        <md-input-container class="md-block">
-
-            <textarea id="body"  style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus></textarea>
-            <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
-            <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
-            </span>
-        </md-input-container>
     
+        <div class="control-group">
+            <label class="control-label" for="abstract">Abstract:(*)</label>
+            <div class="control-text">
+                <md-input-container  class="md-block">
+                    <textarea  id="abstract"style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
+                    <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
+                    <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
+                    </span>
+                </md-input-container>
+        </div>
+    
+        <div class="control-group">
+            <label class="control-label" for="body">Body:(*)</label>
+            <div class="control-text">
+                <md-input-container class="md-block">
+                    <textarea id="body"  style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus></textarea>
+                    <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
+                    <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
+                    </span>
+                </md-input-container>
+            </div>
+        </div>
         <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
  
         <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
