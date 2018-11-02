@@ -1,9 +1,5 @@
 var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
 
-
-// ADD CONTROLLERS
-
-// TODO: Code of the routeProvider
 app.config(function($routeProvider) {
   $routeProvider
 	.when('/news-list', {
@@ -31,15 +27,13 @@ app.config(function($routeProvider) {
     })
 });	
 
+app.filter('categoryFiler', function(){
+
+})
 
 app.run(function($rootScope) {
     $rootScope.loggedIn = false;
 });
-// 
-// TODO: Replace XXXXXXXX with the APIKEY your group anonymous apikey
-// When the user is logged in, the apikey sent to the server must be updated to the
-// apikey received from the server and it must be done in a controller
-// $http.defaults.headers.common['Authorization'] = loginres.Authorization + ' apikey=' + loginres.apikey;
 
 app.run(['$http', function ($http) {
 	$http.defaults.headers.common['Authorization'] = 'PUIRESTAUTH apikey=REVWX1RFQU1fMDM=';

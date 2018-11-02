@@ -25,15 +25,12 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="css/app.css">
 
-    <!-- Style sheet for log in/out button -->
-    <link rel="stylesheet" href="css/login.css">
-
 </head>
 
 <body ng-app="newssapp">
 	
     <!-- ##### Header Area Start ##### -->
-    <header ng-controller="HeaderCtrl" class="header-area">
+    <header class="header-area">
 
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -44,26 +41,29 @@
                            
 <!-- ADD LOGO -->
 
-                            <!-- Logo -->
-                            <div class="logo">
-                                <a href="index.html"><img img\logo.jpg" alt=""></a>
+
+
+                            <div >
                             </div>
 
                             <!-- Search and Login Area -->
                             <div class="login-search-area d-flex align-items-center">
                             	<!-- Login -->
-                                <div ng-if="!loggedIn" class="login d-flex">
-                                    <a href="#!/news-login">Login</a>
-                                </div>
-                                <div ng-if="loggedIn" class="login d-flex">
-                                    <a href ng-click="logOut()">Logout</a>
+                                <div ng-controller="LogoutCtrl">
+                                    <div ng-if="!loggedIn" class="login d-flex">
+                                        <a href="#!/news-login">Login</a>
+                                    </div>
+                                    <div ng-if="loggedIn" class="login d-flex">
+                                        <a href ng-click="createNewArticle()">Create article</a>
+                                        <a href ng-click="logOut()">Logout</a>
+                                    </div>
                                 </div>
 
                                 <!-- Search Form -->
                                 <div class="search-form">
                                     <form>
                                         <input type="search" name="search" ng-model="searchFilter" class="form-control" placeholder="Search">
-                                        <!-- <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -77,23 +77,28 @@
         <div class="newspaper-main-menu" id="stickyMenu">
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
+                   
                     <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="newspaperNav">
+                     <nav class="classy-navbar justify-content-between" id="newspaperNav">
+                    
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler ">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
 
-                        <!-- Logo -->
-                        <!-- <div class="logo">
-                            <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-                        </div>
- -->
-                        <!-- Navbar Toggler -->
-                       <!--  <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span>
-                            </span>
-                        </div> -->
+                    <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                   
+
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active" ng-click="categoryFilter=showAll"><a href> Home</a></li>
+                                <li ng-click="categoryFilter=showAll"><a href> Home</a></li>
                             	<li ng-click="categoryFilter=showAll"><a href>All news</a></li>
 								<li ng-click="categoryFilter={category:'National'}"><a href>National</a></li>
 								<li ng-click="categoryFilter={category:'Economy'}"><a href>Economy</a></li>
@@ -101,6 +106,7 @@
 								<li ng-click="categoryFilter={category:'Technology'}"><a href>Technology</a></li>
                             </ul>
                         </div>
+                    </div>
                         <!-- Nav End -->
                     </nav>
                 </div>
