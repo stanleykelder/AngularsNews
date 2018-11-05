@@ -16,7 +16,8 @@
                     <div class="post-data">
                         {{article.category}}
                         <a href="#!/news-show" class="post-title">
-                            <h1>{{article.title}}</h1>
+                            <td><a ng-if="loggedIn" ng-click="articleDetails(article.id)">{{article.title}}</a></td>
+                        
                         </a>
                             <h4>{{article.subtitle}}</h4>
                         <div class="post-meta">

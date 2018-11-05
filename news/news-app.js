@@ -16,6 +16,11 @@ app.config(function($routeProvider) {
 		templateUrl: 'news/news-edition.html',
 		controller : 'ArticleDetailCtrl'
 	})
+
+	.when('/news-show/:id', {
+		templateUrl: 'news/news-show.html',
+		controller : 'ArticleDetailCtrl'
+	})
 	.when('/news-login', {
 		templateUrl: 'news/news-login.html',
 		controller : 'LoginCtrl'

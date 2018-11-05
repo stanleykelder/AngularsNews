@@ -35,6 +35,14 @@ app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, 
         $location.path('/news-edition/' + articleId);
     };
 
+
+       // callback for ng-click 'articleDetails':
+       $scope.articleDetails = function (articleId) {
+        $rootScope.id = articleId;
+		console.log("NewsListCtrl.articleDetails: " + articleId);
+        $location.path('/news-show/' + articleId);
+    };
+
     // callback for ng-click 'deleteArticle':
     $scope.deleteArticle = function (articleId) {
 		console.log("NewsDetailsService.deleteArticle: " + articleId);
