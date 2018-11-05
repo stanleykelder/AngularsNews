@@ -9,14 +9,14 @@
             <!-- Single Featured Post -->
             <div class="col-lg-8">
                 <div class="col-lg-6" ng-repeat="article in news | filter: categoryFilter | filter: searchFilter">
-                <div class="single-blog-post featured-post border">
+                <div style =" margin: 15px 10px ;"  class="single-blog-post featured-post border">
                     <div class="post-thumb">
-                        <a href="#!/news-show"><img ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></img></a>
+                        <a  href="#!/news-show"><img ng-src="{{ 'data:' + article.thumbnail_media_type + ';base64,' + article.thumbnail_image }}" alt=""></img></a>
                     </div>
                     <div class="post-data">
                         {{article.category}}
                         <a href="#!/news-show" class="post-title">
-                            <td><a href ng-click="articleDetails(article.id)">{{article.title}}</a></td>
+                            <td><a ng-if="loggedIn" ng-click="articleDetails(article.id)">{{article.title}}</a></td>
                         
                         </a>
                             <h4>{{article.subtitle}}</h4>
