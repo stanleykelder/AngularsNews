@@ -59,7 +59,6 @@
                 </md-input-container>
             </div>
         </div>
-        <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
 
         <div class="control-group">
             <label class="control-label" for="body">Image:</label>
@@ -75,7 +74,7 @@
 
         <div class="control-group">
 
-                <div class="controls">   <!--   <div class="text-right"></div> -->
+                <div class="controls">
                         <input style=" float:Right; margin: 8px 0;   padding: 15px 32px;" type="button" ng-click="updateArticle()" class="btn btn-small btn-primary" 
                         ng-disabled="articleForm.title.$invalid || articleForm.Subtitle.$invalid || articleForm.category.$invalid || articleForm.abstract.$invalid || articleForm.body.$invalid" value="Save"> 
                 </div>
@@ -87,7 +86,3 @@
         </div>
     </form>
 </div>
-<!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
- 
-<!-- <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
-<input type="file" ng-file-select="onFileSelect($files);" ng-model="news"></input> -->

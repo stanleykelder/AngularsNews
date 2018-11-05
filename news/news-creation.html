@@ -50,8 +50,6 @@
             <label class="control-label" for="body">Body:(*)</label>
             <div class="control-text">
                 <md-input-container class="md-block">
-
-                    <!-- <textarea id="summernote" style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus></textarea> -->
                     <summernote ng-model="body"></summernote>
                     <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
@@ -59,8 +57,6 @@
                 </md-input-container>
             </div>
         </div>
-
-        <!-- Code to browse the image file and binds the image to the scope variables "news.image_media_type" and "news.image_data" -->
 
         <div class="control-group">
             <label class="control-label" for="body">Image:</label>
@@ -76,7 +72,7 @@
 
         <div class="control-group">
 
-                <div class="controls">   <!--   <div class="text-right"></div> -->
+                <div class="controls">
                         <input style=" float:Right; margin: 8px 0;   padding: 15px 32px;" type="button" ng-click="createNewArticle()" class="btn btn-small btn-primary" 
                         ng-disabled="articleForm.title.$invalid || articleForm.Subtitle.$invalid || articleForm.category.$invalid || articleForm.abstract.$invalid || articleForm.body.$invalid" value="Save"> 
                 </div>
