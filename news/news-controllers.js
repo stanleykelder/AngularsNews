@@ -22,8 +22,6 @@ app.controller('LogoutCtrl', function ($scope, $rootScope, $location, $http, $wi
 app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, $window, NewsListService, NewsDetailsService) {
     $rootScope.newsList = true;
 
-    console.log("Holii Blanca!")
-
     $scope.$on('$locationChangeSuccess', function(event) {
       $rootScope.newsList = !$rootScope.newsList;
     });
@@ -70,7 +68,6 @@ app.controller('NewsListCtrl', function ($scope, $rootScope, $route, $location, 
 
 app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, $window, $location, NewsDetailsService) {
 
-        console.log($scope.id + 'ArticleDetailCtrl')
         // callback for ng-click 'updateArticle':
         $scope.updateArticle = function () {
             NewsDetailsService.save({id: $rootScope.id, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
