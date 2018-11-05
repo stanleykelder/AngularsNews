@@ -73,7 +73,7 @@ app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, 
         console.log($scope.id + 'ArticleDetailCtrl')
         // callback for ng-click 'updateArticle':
         $scope.updateArticle = function () {
-            NewsDetailsService.save({id: $rootScope.id, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
+            NewsDetailsService.save({id: $rootScope.id, id_user: $rootScope.idUser, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
                 
                 console.log(data)
                 //TODO: 500 error
@@ -104,7 +104,7 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $window, $lo
     console.log('LOOOOG' + $rootScope.idUser, $scope.abstract, $scope.subtitle, $scope.update_date, $scope.category, $scope.title, $scope.image_data, $scope.body);
 
     $scope.createNewArticle = function () {
-            NewsDetailsService.save({abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
+            NewsDetailsService.save({id_user: $rootScope.idUser, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
                 
                 console.log(data)
                 //TODO: 500 error
