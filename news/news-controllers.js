@@ -81,6 +81,7 @@ app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, 
                 $location.path('/news-list');
             },
             function(error){
+                $window.alert("Article could not be updated");
                 console.log(error);
             });
         };
@@ -98,9 +99,9 @@ app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, 
         });
 });
 
-app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $http, NewsDetailsService) {
+app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $window, $location, $http, NewsDetailsService) {
 
-    console.log($rootScope.idUser, $scope.abstract, $scope.subtitle, $scope.update_date, $scope.category, $scope.title, $scope.image_data, $scope.body);
+    console.log('LOOOOG' + $rootScope.idUser, $scope.abstract, $scope.subtitle, $scope.update_date, $scope.category, $scope.title, $scope.image_data, $scope.body);
 
     $scope.createNewArticle = function () {
             NewsDetailsService.save({abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
@@ -111,6 +112,7 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $location, $
                 $location.path('/news-list');
             },
             function(error){
+                $window.alert("Article could not be created");
                 console.log(error);
             });
         };
