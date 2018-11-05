@@ -16,7 +16,7 @@
                     <div class="post-data">
                         {{article.category}}
                         <a href="#!/news-show" class="post-title">
-                            <td><a ng-if="loggedIn" ng-click="articleDetails(article.id)">{{article.title}}</a></td>
+                            <td><a ng-click="articleDetails(article.id)">{{article.title}}</a></td>
                         
                         </a>
                             <h4>{{article.subtitle}}</h4>
@@ -25,8 +25,9 @@
                             <p class="post-author">Last modified on {{article.update_date}}</p>
                             <p class="post-excerp">{{article.abstract}} </p>
                         </div>
-                        <td><a ng-if="loggedIn" ng-click="editArticle(article.id)" class="btn btn-small btn-primary">edit</a></td>
-                        <td><a ng-if="loggedIn" ng-click="deleteArticle(article)" class="btn btn-small btn-danger">delete</a></td>
+                        <button ng-if="loggedIn" ng-click="articleDetails(article.id)" type="button" class="btn btn-link">Read more...</button>
+                        <td><a ng-if="loggedIn" ng-click="editArticle(article.id)" class="btn btn-small btn-outline-primary">edit</a></td>
+                        <td><a ng-if="loggedIn" ng-click="deleteArticle(article)" class="btn btn-small btn-warning">delete</a></td>
                     </div>
                 </div>
                  
