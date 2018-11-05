@@ -4,8 +4,9 @@
     <form novalidate name="articleForm" class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="title">Title:(*)</label>
+            
             <div class="controls">
-                <input style=" margin: 8px 0;" type="text" id="title" ng-model= {article.title} name="title" placeholder="Title" required/>
+                <input style=" margin: 8px 0;" type="text" id="title" ng-model= "title" name="title" placeholder="Title" required/>
                 <span class="text-warning" ng-show="articleForm.title.$dirty && articleForm.title.$invalid">
                 <span ng-show="articleForm.title.$error.required">Title is required.</span>
                 </span>
@@ -29,8 +30,7 @@
                     <option value="National">National </option>
                     <option value="Economy">Economy</option>
                     <option value="Sports">Sports</option>
-                    <option value="Technology">Technology</option>
-                    </span>
+                    <option value="Technology">Technology</option>  
                 </select>
             </div>
         </div>
@@ -39,7 +39,7 @@
             <label class="control-label" for="abstract">Abstract:(*)</label>
             <div class="control-text">
                 <md-input-container  class="md-block">
-                    <textarea id="abstract"style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
+                    <textarea id="abstract" style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
                     <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
                     </span>
@@ -50,7 +50,7 @@
             <label class="control-label" for="body">Body:(*)</label>
             <div class="control-text">
                 <md-input-container class="md-block">
-                    <textarea id="body"  style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus></textarea>
+                    <textarea id="body" style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus></textarea>
                     <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
                     </span>
