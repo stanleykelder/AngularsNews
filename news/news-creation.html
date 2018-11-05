@@ -39,7 +39,7 @@
             <label class="control-label" for="abstract">Abstract:(*)</label>
             <div class="control-text">
                 <md-input-container  class="md-block">
-                    <textarea id="abstract" name="abstract" style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus required></textarea>
+                    <textarea id="abstract" name="abstract" style=" margin: 8px 0;" ng-model="abstract" rows="5" cols="45" md-select-on-focus required></textarea>
                     <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
                     </span>
@@ -50,7 +50,7 @@
             <label class="control-label" for="body">Body:(*)</label>
             <div class="control-text">
                 <md-input-container class="md-block">
-                    <textarea id="body" name="body" style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus required></textarea>
+                    <textarea id="body" name="body" style=" margin: 8px 0;" ng-model="body" cols="45" rows="5" md-select-on-focus required></textarea>
                     <span class="text-warning" ng-show="articleForm.body.$dirty && articleForm.body.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
                     </span>
