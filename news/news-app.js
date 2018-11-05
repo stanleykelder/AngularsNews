@@ -1,4 +1,4 @@
-var app = angular.module("newssapp", ["ngRoute", "ngResource","ngSanitize"]);
+var app = angular.module("newssapp", ["summernote", "ngRoute", "ngResource","ngSanitize"]);
 
 app.config(function($routeProvider) {
   $routeProvider
