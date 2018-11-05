@@ -73,7 +73,7 @@ app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, 
         console.log($scope.id + 'ArticleDetailCtrl')
         // callback for ng-click 'updateArticle':
         $scope.updateArticle = function () {
-            NewsDetailsService.save({id: $rootScope.id, id_user: $rootScope.idUser, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
+            NewsDetailsService.save({id: $rootScope.id, id_user: $rootScope.idUser, abstract: $scope.article.abstract, subtitle: $scope.article.subtitle, category: $scope.article.category, title: $scope.article.title, image_data: $scope.article.image_data, body: $scope.article.body, image_media_type: $scope.article.image_media_type} , function(data) {
                 
                 console.log(data)
                 //TODO: 500 error
@@ -92,7 +92,8 @@ app.controller('ArticleDetailCtrl', function ($scope, $rootScope, $routeParams, 
         };
 
         // When loading the form we take the article info
-        $scope.news = NewsDetailsService.get({id: $rootScope.id}, function(data) {
+        
+        NewsDetailsService.get({id: $rootScope.id}, function(data) {
             console.log(data) 
             console.log('ArticleDetailCtrl')
             $scope.article = data
@@ -104,7 +105,7 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $window, $lo
     console.log('LOOOOG' + $rootScope.idUser, $scope.abstract, $scope.subtitle, $scope.update_date, $scope.category, $scope.title, $scope.image_data, $scope.body);
 
     $scope.createNewArticle = function () {
-            NewsDetailsService.save({id_user: $rootScope.idUser, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.image_data, body: $scope.body} , function(data) {
+            NewsDetailsService.save({id_user: $rootScope.idUser, abstract: $scope.abstract, subtitle: $scope.subtitle, category: $scope.category, title: $scope.title, image_data: $scope.img.image_data, body: $scope.body, image_media_type: $scope.img.image_media_type} , function(data) {
                 
                 console.log(data)
                 //TODO: 500 error
@@ -120,6 +121,7 @@ app.controller('ArticleCreationCtrl', function ($scope, $rootScope, $window, $lo
     $scope.cancel = function () {
         $location.path("/");
         };
+    $scope.img = {}
 });
 
 // add rootscope variable?

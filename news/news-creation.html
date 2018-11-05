@@ -30,7 +30,7 @@
                     <option value="National">National </option>
                     <option value="Economy">Economy</option>
                     <option value="Sports">Sports</option>
-                    <option value="Technology">Technology</option>  
+                    <option value="Technology">Technology</option> 
                 </select>
             </div>
         </div>
@@ -39,7 +39,7 @@
             <label class="control-label" for="abstract">Abstract:(*)</label>
             <div class="control-text">
                 <md-input-container  class="md-block">
-                    <textarea id="abstract" style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus></textarea>
+                    <textarea id="abstract" name="abstract" style=" margin: 8px 0;" ng-model="abstract" md-maxlength="50" rows="5" md-select-on-focus required></textarea>
                     <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
                     </span>
@@ -50,8 +50,8 @@
             <label class="control-label" for="body">Body:(*)</label>
             <div class="control-text">
                 <md-input-container class="md-block">
-                    <textarea id="body" style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus></textarea>
-                    <span class="text-warning" ng-show="articleForm.abstract.$dirty && articleForm.abstract.$invalid">
+                    <textarea id="body" name="body" style=" margin: 8px 0;" ng-model="body" md-maxlength="550" rows="5" md-select-on-focus required></textarea>
+                    <span class="text-warning" ng-show="articleForm.body.$dirty && articleForm.body.$invalid">
                     <span ng-show="articleForm.abstract.$error.required">Abstract is required.</span>
                     </span>
                 </md-input-container>
@@ -61,8 +61,8 @@
 
         <div class="control-group">
             <label class="control-label" for="body">Image:</label>
-                <div class="control-img">
-                    <img style="width:300px; height:300px;" ng-src="{{ 'data:' + news.image_media_type + ';base64,' + news.image_data }}" />
+                <div class="control-img" ng-controller="UploadController">
+                    <img style="width:300px; height:300px;" ng-src="{{ 'data:' + img.image_media_type + ';base64,' + img.image_data }}" />
                     <input style=" margin: 8px 0;"type="file" ng-file-select="onFileSelect($files);" ng-model="img"></input>
                 </div>
         </div>
